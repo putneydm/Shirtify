@@ -5,8 +5,11 @@ $(document) .ready (function()
 	
 	$('#cta') .click (function()
 		{
-		$('#overlay') .fadeIn (300);		
+		$('#overlay, #spinner') .fadeIn (300);		
 		$('.main, .site_header') .addClass ('blur');
+		
+		var html = jQuery('html');
+		html.css('overflow', 'hidden');
 		
 		
 			$('#retrieving') .show () .delay (3000) .fadeOut (100, function()
@@ -50,7 +53,9 @@ $(document) .ready (function()
 	$('#close') .click (function()
 		{
 		$('.main, .site_header') .removeClass ('blur');
-		$('#overlay') .fadeOut (100);
+		$('#overlay, #results') .fadeOut (100);
+		var html = jQuery('html');
+		html.css('overflow', 'scroll');
 		
 		
 		});
