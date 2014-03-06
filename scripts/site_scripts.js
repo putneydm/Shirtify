@@ -186,84 +186,95 @@ $(document) .ready (function()
 		intervals = data[counter].intervals;
 		dates = data[counter].datesworn;
 		
-		if (intervals > 0)
-		
-		{			
-			dates_array.push(dates);
-			numbers_array.push(intervals);	
-		}
-  	
+		if (intervals > 0 & counter < 6)		
+		{	
+			numbers_array.push([dates, intervals]);				
+		}	
 	  	counter ++;
 	 }
-  	
-	
-  	}
-	
-  
-  
-  
-  function showInfo(data, tabletop) {
-  //  alert("Successfully processed!")
-    console.log(data);
-    
-    console.log('last time worn ' + data[0].lasttimeworn);
-    console.log('today\'s date' + data[0].todaysdate);
-    console.log('average intervals ' + data[0].avgintervals);
-    console.log('days since last worn ' + data[0].dayssinceworn);
-    
-  //	var days_since = data[0].dayssinceworn;
-  	var days_since = 4;
-  	intervals = 10;
-  //	var intervals = data[0].avgintervals;
-  	var factor = intervals/1.2;
-  	var factor = Math.round(factor).toFixed(0);
-  	
-  	
-  	
-  	  				console.log('too' + factor);
-  	  				
-  	  				console.log('intervals' + intervals);
 
-  	
-  	
-  	if (days_since == intervals)
+	showInfo (data, tabletop);
+
+  	}
+
+
+  function showInfo(data, tabletop) {
+
+	var intervals = data[1].avgintervals;	
+	var days_since = data[0].dayssinceworn;	
+	var factor = (days_since / intervals) * 100;
+	  	var factor = Math.round(factor).toFixed(0);	
+	var overdue = days_since - intervals;
+	
+
+  	var days_until = data[0].daysuntil;
+  		
+	  	if (factor <= 25)
   		{
-  			match('high');		
+  			match(' low', '#chance', days_since);
+  			match(' ' + days_since + ' days ago', '#last_worn');
+   			match('in ' + days_until  + ' days', '#predicted'); 			
+  		}
+	
+		if (factor > 25 & factor <= 50)
+  		{
+  			match(' guarded', '#chance');
+  			match(' ' + days_since  + ' days ago', '#last_worn');
+  			match('in ' + days_until  + ' days', '#predicted');
   		}
   		
-  		
-  		 if (days_since > intervals)
+		
+		if (factor > 50 & factor <= 75)
   		{
- 			match('critical');		
+  			match(' elevated', '#chance');
+  			match(' ' + days_since  + ' days ago', '#last_worn');
+    		match('in ' + days_until  + ' days', '#predicted');		
   		}
-  		
-  		
-  	  	if (days_since >= factor & days_since != intervals & days_since < intervals )
+	
+		if (factor > 75 & factor <= 100)
   		{
-  			match('likely');
-  				console.log('works');
+  			match(' high', '#chance');
+  			match(' ' + days_since  + ' days ago', '#last_worn');
+   			match('in ' + days_until  + ' days', '#predicted'); 			
   		}
-  		
-  		if (days_since < factor)
+	
+		if (factor > 100)
   		{
-  			match('low');
- 		
+  			match(' severe', '#chance');
+  			match(' ' + days_since  + ' days ago', '#last_worn');
+  			match(' by' + overdue + ' days', '#overdue');	
   		}
-  		
-  	
+	
+
+
+  function match(status, target)
+  {  
+	$(target) .append (status);
+	$(target) .show ();
+  }
   
-  function match(status)
-  {
   
-  $('#chance') .append (status);
-  
-  
+	function add_details(target, status)
+  {  
+  $(target) .append (status);
+  }
+
   }
   
   
   
   
-  
- //   	console.log(data[0].datesworn);
-    
-  }
+
+
+
+
+
+
+
+	
+});
+
+
+
+
+ 
