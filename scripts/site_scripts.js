@@ -73,10 +73,43 @@ $(document) .ready (function()
 
   function init() {
     Tabletop.init( { key: public_spreadsheet_url,
-                     callback: showInfo,
+                    // callback: showInfo,
+                    callback: parseData,
                      simpleSheet: true } )
   }
 
+  
+  function parseData (data, tabletop)
+  	{
+
+ 	var length = data.length;
+  	counter = 1;
+  	dates_array = [];
+	numbers_array = []
+
+  	
+  	while (counter < length)
+	  {
+
+		intervals = data[counter].intervals;
+		dates = data[counter].datesworn;
+		
+		if (intervals > 0)
+		
+		{			
+			dates_array.push(dates);
+			numbers_array.push(intervals);	
+		}
+  	
+	  	counter ++;
+	 }
+  	
+	
+  	}
+	
+  
+  
+  
   function showInfo(data, tabletop) {
   //  alert("Successfully processed!")
     console.log(data);
