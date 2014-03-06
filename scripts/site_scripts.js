@@ -61,19 +61,111 @@ $(document) .ready (function()
 		});
 
 
+	$('#details') .click (function()
+		{
+		$('#results') .hide ();
+		$('#details_container') .fadeIn (200);
+
+  		flot (numbers_array);
+
+		});
+
+
+
+///flot
+
+
+	function flot (numbers)
+		{
 	
-});
+	
+		var red = '#bb5637';
+		var gray = '#666';
+		var light_gray = '#999';
+		var background = '#fff';
+		var silver = '#d1d4d5';
+
+		$.plot(
+		   $("#chart"),
+		   [
+			/* {
+			  label: "This is thing three",
+			  color: light_gray,
+			  data: dates,
+			  bars: {
+				show: true,
+				barWidth: 0.5,
+				align: "center",
+				fillColor:light_gray,
+				lineWidth: 0,
+				label: "y = 3"
+			  }   
+			}, */
+		
+			{
+			  label: "Recent intervals",
+			  color: red,
+			  data: numbers,
+			  bars: {
+				show: true,
+				barWidth: 0.5,
+				align: "center",
+				fillColor:red,
+				lineWidth: 0
+			  }
+			},	
+			
+		 ],
+	 
+		 {
+		   
+		   xaxis: {
+					mode: "categories",
+					tickLength: 0,
+					color: silver,
+					position: 'bottom',
+					size: 9,
+					lineHeight: 13,
+					style: "italic",
+					weight: "bold",
+					family: "sans-serif",
+					variant: "small-caps",
+
+		   },
+		   
+		  	grid: {
+					color:gray,
+					backgroundColor: background,
+					borderWidth: 0
+					},
+					
+			legend: {
+					show:true,
+					backgroundColor: background,
+					labelBoxBorderColor: silver
+					}
+   
+		 			}
+		);
 
 
 
+	}
 
-  window.onload = function() { init() };
+
+///end flot
+
+
+
 
   var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?key=0Ag48o_TvRMtcdFZ3WXdnY0NlNEFIbnU5ejJya1hBS3c&output=html';
 
+
+	init(public_spreadsheet_url);
+
   function init() {
     Tabletop.init( { key: public_spreadsheet_url,
-                    // callback: showInfo,
+                  //  callback: showInfo,
                     callback: parseData,
                      simpleSheet: true } )
   }
