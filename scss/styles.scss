@@ -400,25 +400,45 @@ h2
 		
 			li
 			{
-			font-size:1em;
+			font-size:1.4em;
 			color:$orange;
 			margin:0 0 20px 0;
 			text-align:center;
+			font-weight:700;
+			}
 			
-			
+						
 			span
 			{
 			display:block;
 			color:#444;
-			font-weight:700;
+			font-weight:400;
 			font-size:.85em;
 			margin:0 0 8px 0;
 			}
-			
+		
+		
+			#predicted, #overdue
+			{
+			display:none;
 			}
 		
 		}
 	
+	#chart
+	{
+	width:100%;
+	max-width:300px;
+	height:200px;
+	margin:0px auto;	
+	
+	.flot-text
+	{
+	font-size:9px !important;
+	}
+	
+	
+	}
 	
 	
 	}
