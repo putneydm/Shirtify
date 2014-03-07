@@ -2,6 +2,15 @@ $(document) .ready (function()
 	{
 
 
+function year ()
+	{
+	var currentYear = (new Date).getFullYear();
+	$('#copyright') .append (currentYear);
+	}
+
+year ()
+
+
 function load_results ()
 	{
 		$('#overlay, #spinner') .fadeIn (300);		
