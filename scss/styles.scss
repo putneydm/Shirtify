@@ -214,6 +214,8 @@ h2
 	color:$orange;
 	background-color:rgba(255,255,255,.6);
 	cursor:pointer;
+	transition: all 0.2s ease-in-out;
+
 	
 		@media screen and (max-width:400px) 
 		{
