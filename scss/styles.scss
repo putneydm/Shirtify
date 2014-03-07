@@ -291,7 +291,7 @@ h2
 	background-color:#d8e6f4;
 	clear:both;
 	padding:20px 0 0 0;
-	margin:0 auto 60px 0;
+	margin:0 auto 40px 0;
 	background-image:url('../siteart/stitch2x.png'), url('../siteart/stitch2x.png'), url('../siteart/background.png');
 	background-size:15px, 15px, 320px;
 	background-repeat:repeat-x, repeat-x, repeat;
@@ -323,6 +323,12 @@ h2
 		max-width:200px;
 		height:auto;
 		margin:0 auto 30px;	
+		
+			@media screen and (max-width:500px) 
+			{
+			width:180px;
+			}
+		
 		
 		img
 			{
