@@ -2,10 +2,8 @@ $(document) .ready (function()
 	{
 
 
-	
-	$('#cta') .click (function()
-		{
-			console.log('works');
+function load_results ()
+	{
 		$('#overlay, #spinner') .fadeIn (300);		
 		$('.main, .site_header') .addClass ('blur');
 		
@@ -31,50 +29,56 @@ $(document) .ready (function()
 
 									});
 							
-					
-
-
 							});
-					
-					
-					
-
 
 					});
 				
-		
-
 				});
 	
-	
-	});
-	
+	}
 
-
-	$('#close') .click (function()
+	function close()
 		{
 		$('.main, .site_header') .removeClass ('blur');
 		$('#overlay, #results') .fadeOut (100);
 		var html = jQuery('html');
-		html.css('overflow', 'scroll');
-		});
+		html.css('overflow', 'scroll');	
+		}
 
-	$('#close_too') .click (function()
+	function close_too()
 		{
 		$('.main, .site_header') .removeClass ('blur');
 		$('#overlay, #details, #details li, #details_container') .fadeOut (100);
 		var html = jQuery('html');
-		html.css('overflow', 'scroll');
-		});
+		html.css('overflow', 'scroll');		
+		}
 
-
-	$('#details_button') .click (function()
+	function details_button()
 		{
 		$('#results') .hide ();
 		$('#details_container') .fadeIn (200);
 
   		flot (numbers_array);
+  		}
+	
+	$('#cta') .click (function()
+		{
+		load_results ()
+		});
+	
+	$('#close') .click (function()
+		{
+		close()
+		});
 
+	$('#close_too') .click (function()
+		{
+		close_too()
+		});
+
+	$('#details_button') .click (function()
+		{
+		details_button()
 		});
 
 
@@ -83,9 +87,7 @@ $(document) .ready (function()
 
 
 	function flot (numbers)
-		{
-	
-	
+		{	
 		var red = '#bb5637';
 		var gray = '#666';
 		var light_gray = '#999';
@@ -155,15 +157,10 @@ $(document) .ready (function()
 		 			}
 		);
 
-
-
 	}
 
 
 ///end flot
-
-
-
 
   var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?key=0Ag48o_TvRMtcdFZ3WXdnY0NlNEFIbnU5ejJya1hBS3c&output=html';
 
@@ -252,8 +249,6 @@ $(document) .ready (function()
   			match(' by' + overdue + ' days', '#overdue');	
   		}
 	
-
-
   function match(status, target)
   {  
 	$(target) .append (status);
@@ -268,16 +263,6 @@ $(document) .ready (function()
 
   }
   
-  
-  
-  
-
-
-
-
-
-
-
 	
 });
 
