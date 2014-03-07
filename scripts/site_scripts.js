@@ -5,6 +5,7 @@ $(document) .ready (function()
 	
 	$('#cta') .click (function()
 		{
+			console.log('works');
 		$('#overlay, #spinner') .fadeIn (300);		
 		$('.main, .site_header') .addClass ('blur');
 		
@@ -56,12 +57,18 @@ $(document) .ready (function()
 		$('#overlay, #results') .fadeOut (100);
 		var html = jQuery('html');
 		html.css('overflow', 'scroll');
-		
-		
+		});
+
+	$('#close_too') .click (function()
+		{
+		$('.main, .site_header') .removeClass ('blur');
+		$('#overlay, #details, #details li, #details_container') .fadeOut (100);
+		var html = jQuery('html');
+		html.css('overflow', 'scroll');
 		});
 
 
-	$('#details') .click (function()
+	$('#details_button') .click (function()
 		{
 		$('#results') .hide ();
 		$('#details_container') .fadeIn (200);
