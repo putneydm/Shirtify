@@ -449,10 +449,7 @@ h2
 		width:100%;
 		margin:auto;
 		position:absolute;
-		top:0px;
-		left:0px;
-		right:0px;
-		bottom:0px;
+		top:100px;
 		height:300px;
 		
 		
@@ -538,15 +535,16 @@ h2
 	.details_container
 	{
 	width:100%;
-	max-width:800px;
 	height:400px;
 	position:absolute;
 	margin:auto;
-	top:0px;
-	bottom:0px;
-	left:0px;
-	right:0px;
+	top:100px;
 	display:none;
+	
+		@media screen and (max-width:500px) 
+		{
+		top:30px;
+		}
 
 	
 		.details
