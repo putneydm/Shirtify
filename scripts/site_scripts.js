@@ -1,6 +1,7 @@
 $(document) .ready (function()
 	{
 
+// automatically adds the date to the footer
 
 function year ()
 	{
@@ -14,7 +15,7 @@ year ()
 function load_results ()
 	{
 		$('#overlay, #spinner') .fadeIn (300);		
-		$('.main, .site_header') .addClass ('blur');
+		$('.main, .site_header, #ribbon, #explain, #footer, #explain_text, #beaker') .addClass ('blur');
 		
 		var html = jQuery('html');
 		html.css('overflow', 'hidden');
@@ -48,7 +49,7 @@ function load_results ()
 
 	function close()
 		{
-		$('.main, .site_header') .removeClass ('blur');
+		$('.main, .site_header, #ribbon, #explain, #footer, #explain_text, #beaker') .removeClass ('blur');
 		$('#overlay, #results') .fadeOut (100);
 		var html = jQuery('html');
 		html.css('overflow', 'scroll');	
@@ -56,7 +57,7 @@ function load_results ()
 
 	function close_too()
 		{
-		$('.main, .site_header') .removeClass ('blur');
+		$('.main, .site_header, #ribbon, #explain, #footer, #explain_text, #beaker') .removeClass ('blur');
 		$('#overlay, #details, #details li, #details_container') .fadeOut (100);
 		var html = jQuery('html');
 		html.css('overflow', 'scroll');		
