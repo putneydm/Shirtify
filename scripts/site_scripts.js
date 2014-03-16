@@ -256,7 +256,7 @@ function load_results ()
   		{
   			match(' severe', '#chance');
   			match(' ' + days_since  + ' days ago', '#last_worn');
-  			match(' by' + overdue + ' days', '#overdue');	
+  			match(' by ' + overdue + ' days', '#overdue');	
   		}
 	
   function match(status, target)
